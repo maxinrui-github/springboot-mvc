@@ -6,8 +6,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @Author: oyc
- * @Date: 2018/12/3 11:11
+ * @Author: maxinrui
+ * @Date: 2019-6-15
  * @Description: MD5加密工具
  */
 public class MD5Util {
@@ -41,6 +41,6 @@ public class MD5Util {
     }
 
     public static void main(String[] args) {
-        System.out.println(MD5Util.encode("123456"));
+        System.out.println(MD5Util.encode("123"));
     }
 }
