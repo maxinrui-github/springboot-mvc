@@ -1,15 +1,12 @@
 package com.master.controller.sys;
 
+import com.master.service.sys.SysPermissionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.nio.file.attribute.UserPrincipal;
 
 /**
  * \* Created with IntelliJ IDEA.
@@ -21,17 +18,18 @@ import java.nio.file.attribute.UserPrincipal;
  * \
  */
 @Controller
-public class LoginController {
+public class LoginController{
 
     private Logger logger = LoggerFactory.getLogger(LoginController.class);
-
+    @Autowired
+    private SysPermissionService sysPermissionService;
 
     @RequestMapping("/")
     public String showIndex(Model model) {
-        model.addAttribute("msg","ssssssssssssssss");
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("sysPermissions", sysPermissionService.getPermission());
         return "index";
     }
+
     @RequestMapping("login")
     public String showHome() {
         return "login";

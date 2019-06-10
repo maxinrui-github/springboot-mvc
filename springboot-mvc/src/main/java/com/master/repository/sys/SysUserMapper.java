@@ -3,6 +3,8 @@ package com.master.repository.sys;
 import com.master.domain.sys.SysUser;
 import org.springframework.stereotype.Repository;
 
+import java.io.Serializable;
+
 /**
  * \* Created with IntelliJ IDEA.
  * \* User: Maxinrui

@@ -1,7 +1,5 @@
 package com.master.domain.sys;
 
-import com.master.domain.BaseEntity;
-
 import java.io.Serializable;
 
 /**
@@ -13,14 +11,23 @@ import java.io.Serializable;
  * \* Description:
  * \
  */
-public class SysUser extends BaseEntity<Long> {
+public class SysUser implements Serializable {
 
     private static final long serialVersionUID = 4180869216498363919L;
+
+    private Integer id;
 
     private String name;
 
     private String password;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

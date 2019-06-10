@@ -30,8 +30,7 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*Mapping.xml
   type-aliases-package: com.master.domain
+
 logging:
   level:
-    com:
-      example:
-        mapper : debug
+    com.master.repository: debug

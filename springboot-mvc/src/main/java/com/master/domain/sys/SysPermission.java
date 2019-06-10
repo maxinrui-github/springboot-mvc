@@ -1,12 +1,21 @@
 package com.master.domain.sys;
 
-import com.master.domain.BaseEntity;
-
+import java.io.Serializable;
 import java.util.List;
 
-public class SysPermission extends BaseEntity<Long> {
+public class SysPermission implements Serializable {
 
 	private static final long serialVersionUID = 6180869216498363919L;
+
+	private Integer id;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	private Long parentId;
 	private String name;

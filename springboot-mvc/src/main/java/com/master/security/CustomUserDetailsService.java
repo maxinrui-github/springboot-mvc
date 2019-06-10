@@ -55,17 +55,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("用户名不存在");
         }
-
-        List<SysPermission> permissions = sysPermissionService.findByUserId(user.getId());
-        for (SysPermission permission : permissions) {
-            if (permission != null && permission.getName()!=null) {
-
-                GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(permission.getName());
-                //1：此处将权限信息添加到 GrantedAuthority 对象中，在后面进行全权限验证时会使用GrantedAuthority 对象。
-                authorities.add(grantedAuthority);
-            }
-        }
-
         // 添加权限
         List<SysUserRole> userRoles = userRoleService.listByUserId(user.getId());
         userRoles.removeAll(Collections.singleton(null));

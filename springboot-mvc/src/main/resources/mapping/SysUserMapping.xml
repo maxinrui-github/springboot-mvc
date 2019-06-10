@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.master.repository.sys.SysUserMapper">
-
+    <sql id="sysUserColumns">
+		user.id AS id,
+		user.name AS name,
+		user.password AS password
+	</sql>
+    <sql id="sysUserJoins">
+    </sql>
     <select id="getById" resultType="com.master.domain.sys.SysUser">
-       SELECT * FROM sys_user WHERE id = #{id}
+        SELECT
+        <include refid="sysUserColumns"/>
+        FROM sys_user user
+        <include refid="sysUserJoins"/>
+        WHERE id = #{id}
     </select>
     <select id="getByName" resultType="com.master.domain.sys.SysUser">
-      SELECT * FROM sys_user WHERE name = #{name}
+        SELECT
+        <include refid="sysUserColumns"/>
+        FROM sys_user user
+        <include refid="sysUserJoins"/>
+        WHERE name = #{name}
     </select>
 </mapper>

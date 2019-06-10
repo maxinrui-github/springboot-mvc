@@ -1,12 +1,12 @@
 package com.master.service.sys;
 
 import com.master.domain.sys.SysPermission;
-import com.master.domain.sys.SysUser;
 import com.master.repository.sys.SysPermissionMapper;
-import com.master.repository.sys.SysUserMapper;
+import com.master.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ import java.util.List;
  * \
  */
 @Service
-public class SysPermissionService {
+public class SysPermissionService extends BaseService {
 
     @Autowired
     private SysPermissionMapper permissionMapper;
@@ -31,6 +31,18 @@ public class SysPermissionService {
     public List<SysPermission> findByUserId(int userId) {
         return permissionMapper.findByUserId(userId);
     }
-
-    ;
+/**
+ * 获取当前菜单列表
+ *
+ * */
+    public List<SysPermission> getPermission() {
+        List<SysPermission> permissions = this.findByUserId(getUserId());
+        List<SysPermission> sysPermissions = new ArrayList<>();
+        for (SysPermission permission : permissions) {
+            if (permission != null && permission.getName() != null) {
+                sysPermissions.add(permission);
+            }
+        }
+        return sysPermissions;
+    }
 }

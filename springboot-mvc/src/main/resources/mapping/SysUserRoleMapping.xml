@@ -2,7 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.master.repository.sys.SysUserRoleMapper">
 
-    <select id="listByUserId" resultType="com.master.domain.sys.SysUserRole" >
-       SELECT user_id,role_id FROM sys_user_role WHERE user_id = #{userId}
+
+    <sql id="sysUserRoleColumns">
+		sur.user_id AS userId,
+		sur.role_id AS roleId
+	</sql>
+
+    <sql id="sysUserRoleJoins">
+    </sql>
+
+    <select id="listByUserId" resultType="com.master.domain.sys.SysUserRole">
+        SELECT
+        <include refid="sysUserRoleColumns"/>
+        FROM sys_user_role sur
+        <include refid="sysUserRoleJoins"/>
+        WHERE user_id = #{userId}
     </select>
 </mapper>

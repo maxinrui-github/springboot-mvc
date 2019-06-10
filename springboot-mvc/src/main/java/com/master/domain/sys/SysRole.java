@@ -1,6 +1,6 @@
 package com.master.domain.sys;
 
-import com.master.domain.BaseEntity;
+import java.io.Serializable;
 
 /**
  * \* Created with IntelliJ IDEA.
@@ -11,9 +11,19 @@ import com.master.domain.BaseEntity;
  * \* Description:
  * \
  */
-public class SysRole extends BaseEntity<Long> {
+public class SysRole implements Serializable {
 
     private static final long serialVersionUID = 5180869216498363919L;
+
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     private String name;
 
