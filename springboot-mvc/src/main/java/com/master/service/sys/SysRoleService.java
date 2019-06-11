@@ -20,7 +20,7 @@ public class SysRoleService {
     @Autowired
     private SysRoleMapper roleMapper;
 
-    public SysRole getById(Integer id){
+    public SysRole getById(String id){
         return roleMapper.getById(id);
     }
 }

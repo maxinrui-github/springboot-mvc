@@ -15,13 +15,13 @@ public class SysRole implements Serializable {
 
     private static final long serialVersionUID = 5180869216498363919L;
 
-    private Integer id;
+    private String id;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

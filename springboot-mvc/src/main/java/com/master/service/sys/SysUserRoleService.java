@@ -22,7 +22,7 @@ public class SysUserRoleService {
     @Autowired
     private SysUserRoleMapper userRoleMapper;
 
-    public List<SysUserRole> listByUserId(Integer userId) {
+    public List<SysUserRole> listByUserId(String userId) {
         return userRoleMapper.listByUserId(userId);
     }
 }

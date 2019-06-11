@@ -20,5 +20,5 @@ public interface SysPermissionMapper {
 
     List<SysPermission> findAll();
 
-    List<SysPermission> findByUserId(int userId);
+    List<SysPermission> findByUserId(String userId);
 }

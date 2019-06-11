@@ -28,7 +28,7 @@ public class SysPermissionService extends BaseService {
         return permissionMapper.findAll();
     }
 
-    public List<SysPermission> findByUserId(int userId) {
+    public List<SysPermission> findByUserId(String userId) {
         return permissionMapper.findByUserId(userId);
     }
 /**
@@ -36,13 +36,6 @@ public class SysPermissionService extends BaseService {
  *
  * */
     public List<SysPermission> getPermission() {
-        List<SysPermission> permissions = this.findByUserId(getUserId());
-        List<SysPermission> sysPermissions = new ArrayList<>();
-        for (SysPermission permission : permissions) {
-            if (permission != null && permission.getName() != null) {
-                sysPermissions.add(permission);
-            }
-        }
-        return sysPermissions;
+        return this.findByUserId(getUserId());
     }
 }

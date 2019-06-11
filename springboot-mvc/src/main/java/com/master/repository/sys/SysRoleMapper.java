@@ -15,5 +15,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SysRoleMapper {
 
-    SysRole getById(Integer id);
+    SysRole getById(String id);
 }

@@ -17,5 +17,5 @@ import java.util.List;
 @Repository
 public interface SysUserRoleMapper {
 
-    List<SysUserRole> listByUserId(Integer userId);
+    List<SysUserRole> listByUserId(String userId);
 }

@@ -17,7 +17,7 @@ public class BaseService {
      *
      * @return
      */
-    protected SysUser getCurrentUser() {
+    public SysUser getCurrentUser() {
         //获取当前用户
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext()
                 .getAuthentication()
@@ -34,7 +34,7 @@ public class BaseService {
      *
      * @return
      */
-    protected String getUserName() {
+    public String getUserName() {
         return this.getCurrentUser().getName();
     }
 
@@ -43,7 +43,7 @@ public class BaseService {
      *
      * @return
      */
-    protected Integer getUserId() {
+    public String getUserId() {
         return this.getCurrentUser().getId();
     }
 

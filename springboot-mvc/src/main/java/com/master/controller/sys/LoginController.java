@@ -27,7 +27,12 @@ public class LoginController{
     @RequestMapping("/")
     public String showIndex(Model model) {
         model.addAttribute("sysPermissions", sysPermissionService.getPermission());
+        model.addAttribute("name", sysPermissionService.getUserName());
         return "index";
+    }
+    @RequestMapping("/welcome")
+    public String showwelcome(Model model) {
+        return "welcome";
     }
 
     @RequestMapping("login")

@@ -20,7 +20,7 @@ public class SysUserService {
     @Autowired
     private SysUserMapper userMapper;
 
-    public SysUser getById(Integer id) {
+    public SysUser getById(String id) {
         return userMapper.getById(id);
     }
 

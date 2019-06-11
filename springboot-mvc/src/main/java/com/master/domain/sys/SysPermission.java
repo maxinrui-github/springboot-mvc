@@ -7,31 +7,27 @@ public class SysPermission implements Serializable {
 
 	private static final long serialVersionUID = 6180869216498363919L;
 
-	private Integer id;
+	private String id;
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	private Long parentId;
+	private String parentId;
 	private String name;
-	private String css;
 	private String href;
-	private Integer type;
-	private String permission;
 	private Integer sort;
 
-	private List<SysPermission> child;
 
-	public Long getParentId() {
+	public String getParentId() {
 		return parentId;
 	}
 
-	public void setParentId(Long parentId) {
+	public void setParentId(String parentId) {
 		this.parentId = parentId;
 	}
 
@@ -43,13 +39,7 @@ public class SysPermission implements Serializable {
 		this.name = name;
 	}
 
-	public String getCss() {
-		return css;
-	}
 
-	public void setCss(String css) {
-		this.css = css;
-	}
 
 	public String getHref() {
 		return href;
@@ -57,22 +47,6 @@ public class SysPermission implements Serializable {
 
 	public void setHref(String href) {
 		this.href = href;
-	}
-
-	public Integer getType() {
-		return type;
-	}
-
-	public void setType(Integer type) {
-		this.type = type;
-	}
-
-	public String getPermission() {
-		return permission;
-	}
-
-	public void setPermission(String permission) {
-		this.permission = permission;
 	}
 
 	public Integer getSort() {
@@ -83,11 +57,5 @@ public class SysPermission implements Serializable {
 		this.sort = sort;
 	}
 
-	public List<SysPermission> getChild() {
-		return child;
-	}
 
-	public void setChild(List<SysPermission> child) {
-		this.child = child;
-	}
 }

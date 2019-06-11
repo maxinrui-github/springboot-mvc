@@ -17,7 +17,7 @@ import java.io.Serializable;
 @Repository
 public interface SysUserMapper {
 
-    SysUser getById(Integer id);
+    SysUser getById(String id);
 
     SysUser getByName(String name);
 }
