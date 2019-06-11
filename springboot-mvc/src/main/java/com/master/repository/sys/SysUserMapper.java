@@ -1,9 +1,11 @@
 package com.master.repository.sys;
 
+import com.github.pagehelper.Page;
 import com.master.domain.sys.SysUser;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * \* Created with IntelliJ IDEA.
@@ -20,4 +22,6 @@ public interface SysUserMapper {
     SysUser getById(String id);
 
     SysUser getByName(String name);
+
+    Page<SysUser> findPageList();
 }

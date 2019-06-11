@@ -37,7 +37,14 @@ public class BaseService {
     public String getUserName() {
         return this.getCurrentUser().getName();
     }
-
+    /**
+     * 获取当前用户name
+     *
+     * @return
+     */
+    public String getUserCnName() {
+        return this.getCurrentUser().getCnName();
+    }
     /**
      * 获取当前用户id
      *

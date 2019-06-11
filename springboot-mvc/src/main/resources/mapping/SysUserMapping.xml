@@ -4,7 +4,11 @@
     <sql id="sysUserColumns">
 		user.id AS id,
 		user.name AS name,
-		user.password AS password
+		user.password AS password,
+		user.cn_name AS cnName,
+		user.sex AS sex,
+		user.telphone AS telphone,
+		user.email AS email
 	</sql>
     <sql id="sysUserJoins">
     </sql>
@@ -21,5 +25,11 @@
         FROM sys_user user
         <include refid="sysUserJoins"/>
         WHERE name = #{name}
+    </select>
+    <select id="findPageList" resultType="com.master.domain.sys.SysUser">
+        SELECT
+        <include refid="sysUserColumns"/>
+        FROM
+        sys_user user
     </select>
 </mapper>

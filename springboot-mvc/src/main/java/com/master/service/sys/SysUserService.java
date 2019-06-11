@@ -1,9 +1,14 @@
 package com.master.service.sys;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.master.domain.sys.SysUser;
 import com.master.repository.sys.SysUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * \* Created with IntelliJ IDEA.
@@ -26,5 +31,12 @@ public class SysUserService {
 
     public SysUser getByName(String name) {
         return userMapper.getByName(name);
+    }
+
+    public PageInfo<SysUser> findPageList(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        Page<SysUser> userList = this.userMapper.findPageList();
+        PageInfo<SysUser> pageList = new PageInfo<>(userList);
+        return pageList;
     }
 }
