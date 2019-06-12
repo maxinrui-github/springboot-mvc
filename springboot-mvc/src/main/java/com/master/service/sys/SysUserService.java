@@ -5,6 +5,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.master.domain.sys.SysUser;
 import com.master.repository.sys.SysUserMapper;
+import com.master.util.IdGen;
+import com.master.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,15 @@ public class SysUserService {
         Page<SysUser> userList = this.userMapper.findPageList();
         PageInfo<SysUser> pageList = new PageInfo<>(userList);
         return pageList;
+    }
+
+    public int save(SysUser user) {
+        user.setId(IdGen.uuid());
+        user.setPassword(MD5Util.encode(user.getPassword()));
+        return this.userMapper.save(user);
+    }
+
+    public int delete(SysUser user) {
+        return this.userMapper.delete(user);
     }
 }

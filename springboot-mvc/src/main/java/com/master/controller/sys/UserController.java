@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * \* Created with IntelliJ IDEA.
@@ -34,6 +35,16 @@ public class UserController {
     public String findList(Model model,@RequestParam(value = "pageNum", defaultValue = "1") int pageNum,@RequestParam(value = "pageSize", defaultValue = "5") int pageSize) {
         model.addAttribute("pageInfo",userService.findPageList(pageNum,pageSize));
         return "sys/user/list";
+    }
+    @RequestMapping("/save")
+    @ResponseBody
+    public int save(SysUser user) {
+        return this.userService.save(user);
+    }
+    @RequestMapping("/delete")
+    @ResponseBody
+    public int delete(SysUser user) {
+        return this.userService.delete(user);
     }
 
 }

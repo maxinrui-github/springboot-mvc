@@ -32,4 +32,16 @@
         FROM
         sys_user user
     </select>
+    <insert id="save">
+        INSERT INTO sys_user (
+        id,name,cn_name,sex,telphone,email,password
+        )VALUES(
+        #{id}, #{name},#{cnName},#{sex}, #{telphone},#{email}, #{password}
+        )
+
+    </insert>
+    <delete id="delete">
+        DELETE FROM sys_user WHERE id=#{id}
+
+    </delete>
 </mapper>

@@ -24,4 +24,8 @@ public interface SysUserMapper {
     SysUser getByName(String name);
 
     Page<SysUser> findPageList();
+
+    int save(SysUser user);
+
+    int delete(SysUser user);
 }
